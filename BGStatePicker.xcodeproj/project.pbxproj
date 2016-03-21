@@ -10,6 +10,14 @@
 		4102A8B21CA0662D00CA5F07 /* BGStatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4102A8B11CA0662D00CA5F07 /* BGStatePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4102A8B91CA0662D00CA5F07 /* BGStatePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4102A8AE1CA0662D00CA5F07 /* BGStatePicker.framework */; };
 		4102A8BE1CA0662D00CA5F07 /* BGStatePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8BD1CA0662D00CA5F07 /* BGStatePickerTests.swift */; };
+		4102A8C91CA07E0E00CA5F07 /* BGStatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8C81CA07E0E00CA5F07 /* BGStatePickerView.swift */; };
+		4102A8CB1CA07E3E00CA5F07 /* BGStatePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8CA1CA07E3E00CA5F07 /* BGStatePickerDelegate.swift */; };
+		4102A8CF1CA07F0200CA5F07 /* BGStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8CE1CA07F0200CA5F07 /* BGStateable.swift */; };
+		4102A8D11CA081B800CA5F07 /* BGStatePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8D01CA081B800CA5F07 /* BGStatePickerDataSource.swift */; };
+		414447411CA0A11B008563EF /* BGMockStatePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447401CA0A11B008563EF /* BGMockStatePickerDelegate.swift */; };
+		414447431CA0A1CC008563EF /* BGMockStatePickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447421CA0A1CC008563EF /* BGMockStatePickerDatasource.swift */; };
+		414447451CA0A22C008563EF /* BGMockStatePickerStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447441CA0A22C008563EF /* BGMockStatePickerStateable.swift */; };
+		414447481CA0A6F6008563EF /* BGStatePickerStateableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447471CA0A6F6008563EF /* BGStatePickerStateableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,14 @@
 		4102A8B81CA0662D00CA5F07 /* BGStatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BGStatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4102A8BD1CA0662D00CA5F07 /* BGStatePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGStatePickerTests.swift; sourceTree = "<group>"; };
 		4102A8BF1CA0662D00CA5F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4102A8C81CA07E0E00CA5F07 /* BGStatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerView.swift; sourceTree = "<group>"; };
+		4102A8CA1CA07E3E00CA5F07 /* BGStatePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerDelegate.swift; sourceTree = "<group>"; };
+		4102A8CE1CA07F0200CA5F07 /* BGStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStateable.swift; sourceTree = "<group>"; };
+		4102A8D01CA081B800CA5F07 /* BGStatePickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerDataSource.swift; sourceTree = "<group>"; };
+		414447401CA0A11B008563EF /* BGMockStatePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMockStatePickerDelegate.swift; sourceTree = "<group>"; };
+		414447421CA0A1CC008563EF /* BGMockStatePickerDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMockStatePickerDatasource.swift; sourceTree = "<group>"; };
+		414447441CA0A22C008563EF /* BGMockStatePickerStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMockStatePickerStateable.swift; sourceTree = "<group>"; };
+		414447471CA0A6F6008563EF /* BGStatePickerStateableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerStateableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +89,10 @@
 			children = (
 				4102A8B11CA0662D00CA5F07 /* BGStatePicker.h */,
 				4102A8B31CA0662D00CA5F07 /* Info.plist */,
+				4102A8C81CA07E0E00CA5F07 /* BGStatePickerView.swift */,
+				4102A8CA1CA07E3E00CA5F07 /* BGStatePickerDelegate.swift */,
+				4102A8CE1CA07F0200CA5F07 /* BGStateable.swift */,
+				4102A8D01CA081B800CA5F07 /* BGStatePickerDataSource.swift */,
 			);
 			path = BGStatePicker;
 			sourceTree = "<group>";
@@ -81,9 +101,21 @@
 			isa = PBXGroup;
 			children = (
 				4102A8BD1CA0662D00CA5F07 /* BGStatePickerTests.swift */,
+				414447471CA0A6F6008563EF /* BGStatePickerStateableTests.swift */,
+				414447461CA0A305008563EF /* Mock */,
 				4102A8BF1CA0662D00CA5F07 /* Info.plist */,
 			);
 			path = BGStatePickerTests;
+			sourceTree = "<group>";
+		};
+		414447461CA0A305008563EF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				414447401CA0A11B008563EF /* BGMockStatePickerDelegate.swift */,
+				414447421CA0A1CC008563EF /* BGMockStatePickerDatasource.swift */,
+				414447441CA0A22C008563EF /* BGMockStatePickerStateable.swift */,
+			);
+			name = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4102A8CF1CA07F0200CA5F07 /* BGStateable.swift in Sources */,
+				4102A8C91CA07E0E00CA5F07 /* BGStatePickerView.swift in Sources */,
+				4102A8CB1CA07E3E00CA5F07 /* BGStatePickerDelegate.swift in Sources */,
+				4102A8D11CA081B800CA5F07 /* BGStatePickerDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414447451CA0A22C008563EF /* BGMockStatePickerStateable.swift in Sources */,
 				4102A8BE1CA0662D00CA5F07 /* BGStatePickerTests.swift in Sources */,
+				414447411CA0A11B008563EF /* BGMockStatePickerDelegate.swift in Sources */,
+				414447431CA0A1CC008563EF /* BGMockStatePickerDatasource.swift in Sources */,
+				414447481CA0A6F6008563EF /* BGStatePickerStateableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +348,7 @@
 		4102A8C31CA0662D00CA5F07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +359,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = info.grima.BGStatePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4102A8C41CA0662D00CA5F07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -376,6 +419,7 @@
 				4102A8C41CA0662D00CA5F07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4102A8C51CA0662D00CA5F07 /* Build configuration list for PBXNativeTarget "BGStatePickerTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +428,7 @@
 				4102A8C71CA0662D00CA5F07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
