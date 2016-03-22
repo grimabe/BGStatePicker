@@ -33,11 +33,10 @@ public class BGStatePickerView: UIView {
 			for index in 0 ..< datasource.numberOfState() {
 				let state: BGStateable = datasource.stateForIndex(index)
 				cachedStates.append(state)
-
 				let button = UIButton()
 				button.backgroundColor = state.stateBackgroundColor()
 				button.setTitle(state.stateText(), forState: .Normal)
-				button.addTarget(self, action: "didTapOnState:", forControlEvents: UIControlEvents.TouchUpInside)
+                button.addTarget(self, action: #selector(didTapOnState), forControlEvents: .TouchUpInside)
 				button.titleLabel?.font = state.stateTextFont()
 
 				self.addSubview(button)
