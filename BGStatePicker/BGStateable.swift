@@ -13,4 +13,5 @@ public protocol BGStateable {
 	func stateTextColor() -> UIColor
 	func stateTextFont() -> UIFont
 	func stateBackgroundColor() -> UIColor
+	func  stateSize() -> CGSize
 }

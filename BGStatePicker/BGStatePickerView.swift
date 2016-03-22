@@ -13,6 +13,7 @@ public class BGStatePickerView: UIView {
 
 	public var delegate: BGStatePickerDelegate?
 	public var datasource: BGStatePickerDatasource?
+
 	var selected: BGStateable?
 	var cachedStates: [BGStateable] = []
 
@@ -29,12 +30,17 @@ public class BGStatePickerView: UIView {
 		}
 
 		cachedStates = [BGStateable]()
-		if let datasource = datasource {
 
+		var xOffset: CGFloat = 0
+
+		if let datasource = datasource {
 			for index in 0 ..< datasource.numberOfState() {
 				let state: BGStateable = datasource.stateForIndex(index)
 				cachedStates.append(state)
 				let button = self.buttonFromState(state)
+				let size = state.stateSize()
+				button.frame = CGRect(x: xOffset, y: 0, width: size.width, height: size.width)
+				xOffset += state.stateSize().width
 				self.addSubview(button)
 			}
 		}

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import BGStatePicker
+@testable import BGStatePicker
 
 class BGStatePickerTests: XCTestCase {
 
