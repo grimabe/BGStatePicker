@@ -30,18 +30,25 @@ public class BGStatePickerView: UIView {
 
 		cachedStates = [BGStateable]()
 		if let datasource = datasource {
+
 			for index in 0 ..< datasource.numberOfState() {
 				let state: BGStateable = datasource.stateForIndex(index)
 				cachedStates.append(state)
-				let button = UIButton()
-				button.backgroundColor = state.stateBackgroundColor()
-				button.setTitle(state.stateText(), forState: .Normal)
-                button.addTarget(self, action: #selector(didTapOnState), forControlEvents: .TouchUpInside)
-				button.titleLabel?.font = state.stateTextFont()
-
+				let button = self.buttonFromState(state)
 				self.addSubview(button)
 			}
 		}
+	}
+
+	func buttonFromState(state: BGStateable) -> UIButton {
+		let action = #selector(didTapOnState)
+		let button = UIButton()
+		button.backgroundColor = state.stateBackgroundColor()
+		button.setTitle(state.stateText(), forState: .Normal)
+		button.titleLabel?.font = state.stateTextFont()
+		button.setTitleColor(state.stateTextColor(), forState: .Normal)
+		button.addTarget(self, action: action, forControlEvents: .TouchUpInside)
+		return button
 	}
 
 	func didTapOnState(sender: UIView) {

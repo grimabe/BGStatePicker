@@ -8,38 +8,52 @@
 
 import XCTest
 import BGStatePicker
+
 class BGStatePickerStateableTests: XCTestCase {
 
 	override func setUp() {
 		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
 	}
 
 	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		super.tearDown()
 	}
 
 	func testStateable() {
-		let mock = BGMockStatePickerStateable()
-		mock.text = "blue"
-		mock.color = UIColor.purpleColor()
-		mock.font = UIFont.systemFontOfSize(37.5)
-		mock.backgroundColor = UIColor.darkGrayColor()
+		let mockText = "blue"
+		let mockTextColor = UIColor.purpleColor()
+		let mockBackgroundColor = UIColor.darkGrayColor()
+		let mockTextFont = UIFont.systemFontOfSize(37.5)
+
+		let mockState = BGMockStatePickerStateable()
+		mockState.text = mockText
+		mockState.color = mockTextColor
+		mockState.font = mockTextFont
+		mockState.backgroundColor = mockBackgroundColor
 
 		let view = BGStatePickerView()
 		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
-		datasource.states = [mock]
+		datasource.states = [mockState]
 
 		view.reloadData()
 
 		XCTAssertEqual(view.subviews.count, 1)
 
-		let subview = view.subviews.first! as! UIButton
+		guard let subview = view.subviews.first as? UIButton else {
+			XCTFail()
+			return
+		}
 
-		XCTAssertEqual(subview.titleLabel?.text, "blue")
-		XCTAssertEqual(subview.titleLabel?.font, UIFont.systemFontOfSize(37.5))
-		// TODO Add test for color
+		XCTAssertEqual(subview.titleLabel?.text, mockText)
+		XCTAssertEqual(subview.titleLabel?.font, mockTextFont)
+		XCTAssertEqual(subview.titleLabel?.textColor, mockTextColor)
+
+		guard let backgroundColor = subview.backgroundColor else {
+			XCTFail()
+			return
+		}
+
+		XCTAssertEqual(backgroundColor, mockBackgroundColor)
 	}
 }
