@@ -16,7 +16,7 @@ class BGMockStatePickerStateable: BGStateable {
 	var color = UIColor.redColor()
 	var backgroundColor = UIColor.blueColor()
 	var font = UIFont.systemFontOfSize(10)
-
+	var size = CGSize(width: 40, height: 40)
 	func stateText() -> String {
 		return text
 	}
@@ -31,5 +31,9 @@ class BGMockStatePickerStateable: BGStateable {
 
 	func stateTextFont() -> UIFont {
 		return font
+	}
+
+	func stateSize() -> CGSize {
+		return size
 	}
 }

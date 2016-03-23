@@ -39,7 +39,7 @@ public class BGStatePickerView: UIView {
 				cachedStates.append(state)
 				let button = self.buttonFromState(state)
 				let size = state.stateSize()
-				button.frame = CGRect(x: xOffset, y: 0, width: size.width, height: size.width)
+				button.frame = CGRect(x: xOffset, y: 0, width: size.width, height: size.height)
 				xOffset += state.stateSize().width
 				self.addSubview(button)
 			}
