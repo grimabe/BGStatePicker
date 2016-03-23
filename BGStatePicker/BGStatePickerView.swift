@@ -38,9 +38,9 @@ public class BGStatePickerView: UIView {
 				let state: BGStateable = datasource.stateForIndex(index)
 				cachedStates.append(state)
 				let button = self.buttonFromState(state)
-				let size = state.stateSize()
+				let size = state.stateSize
 				button.frame = CGRect(x: xOffset, y: 0, width: size.width, height: size.height)
-				xOffset += state.stateSize().width
+				xOffset += size.width
 				self.addSubview(button)
 			}
 		}
@@ -49,10 +49,10 @@ public class BGStatePickerView: UIView {
 	func buttonFromState(state: BGStateable) -> UIButton {
 		let action = #selector(didTapOnState)
 		let button = UIButton()
-		button.backgroundColor = state.stateBackgroundColor()
-		button.setTitle(state.stateText(), forState: .Normal)
-		button.titleLabel?.font = state.stateTextFont()
-		button.setTitleColor(state.stateTextColor(), forState: .Normal)
+		button.backgroundColor = state.stateBackgroundColor
+		button.setTitle(state.stateText, forState: .Normal)
+		button.titleLabel?.font = state.stateTextFont
+		button.setTitleColor(state.stateTextColor, forState: .Normal)
 		button.addTarget(self, action: action, forControlEvents: .TouchUpInside)
 		return button
 	}

@@ -11,19 +11,6 @@ import BGStatePicker
 
 class StateClosed: BGStateable {
 
-	func stateText() -> String {
-		return "Closed"
-	}
-	func stateTextFont() -> UIFont {
-		return UIFont.systemFontOfSize(20)
-	}
-	func stateBackgroundColor() -> UIColor {
-		return UIColor.redColor()
-	}
-	func stateTextColor() -> UIColor {
-		return UIColor.whiteColor()
-	}
-	func stateSize() -> CGSize {
-		return CGSize(width: 80, height: 80)
-	}
+	var stateText: String = "Close"
+	var stateBackgroundColor: UIColor = .redColor();
 }

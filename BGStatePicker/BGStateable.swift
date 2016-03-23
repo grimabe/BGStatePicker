@@ -9,9 +9,37 @@
 import Foundation
 
 public protocol BGStateable {
-	func stateText() -> String
-	func stateTextColor() -> UIColor
-	func stateTextFont() -> UIFont
-	func stateBackgroundColor() -> UIColor
-	func stateSize() -> CGSize
+	var stateText: String { get }
+	var stateTextColor: UIColor { get }
+	var stateTextFont: UIFont { get }
+	var stateBackgroundColor: UIColor { get }
+	var stateSize: CGSize { get }
+}
+
+public extension BGStateable {
+	var stateText: String {
+		get {
+			return "Text"
+		}
+	}
+	var stateSize: CGSize {
+		get {
+			return CGSize(width: 40, height: 40)
+		}
+	}
+	var stateTextFont: UIFont {
+		get {
+			return .systemFontOfSize(14)
+		}
+	}
+	var stateTextColor: UIColor {
+		get {
+			return .whiteColor()
+		}
+	}
+	var stateBackgroundColor: UIColor {
+		get {
+			return .greenColor()
+		}
+	}
 }

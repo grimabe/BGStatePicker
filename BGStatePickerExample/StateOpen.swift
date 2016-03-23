@@ -10,19 +10,7 @@ import Foundation
 import BGStatePicker
 
 class StateOpen: BGStateable {
-	func stateText() -> String {
-		return "Open"
-	}
-	func stateTextFont() -> UIFont {
-		return UIFont.systemFontOfSize(20)
-	}
-	func stateBackgroundColor() -> UIColor {
-		return UIColor.greenColor()
-	}
-	func stateTextColor() -> UIColor {
-		return UIColor.whiteColor()
-	}
-	func stateSize() -> CGSize {
-		return CGSize(width: 80, height: 80)
-	}
+
+	var stateText: String = "Open"
+	var stateBackgroundColor: UIColor = .greenColor()
 }

@@ -11,29 +11,29 @@ import BGStatePicker
 import UIKit
 
 class BGMockStatePickerStateable: BGStateable {
-
-	var text = "red"
-	var color = UIColor.redColor()
-	var backgroundColor = UIColor.blueColor()
-	var font = UIFont.systemFontOfSize(10)
-	var size = CGSize(width: 40, height: 40)
-	func stateText() -> String {
-		return text
+	var stateText: String {
+		get {
+			return "Blue"
+		}
 	}
-
-	func stateTextColor() -> UIColor {
-		return color
+	var stateSize: CGSize {
+		get {
+			return CGSize(width: 40, height: 40)
+		}
 	}
-
-	func stateBackgroundColor() -> UIColor {
-		return backgroundColor
+	var stateTextFont: UIFont {
+		get {
+			return .systemFontOfSize(10)
+		}
 	}
-
-	func stateTextFont() -> UIFont {
-		return font
+	var stateTextColor: UIColor {
+		get {
+			return .redColor()
+		}
 	}
-
-	func stateSize() -> CGSize {
-		return size
+	var stateBackgroundColor: UIColor {
+		get {
+			return .blueColor()
+		}
 	}
 }

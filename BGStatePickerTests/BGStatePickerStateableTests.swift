@@ -20,18 +20,8 @@ class BGStatePickerStateableTests: XCTestCase {
 	}
 
 	func testStateable() {
-		let mockText = "blue"
-		let mockTextColor = UIColor.purpleColor()
-		let mockBackgroundColor = UIColor.darkGrayColor()
-		let mockTextFont = UIFont.systemFontOfSize(37.5)
-		let mockSize = CGSize(width: 77, height: 33)
 
 		let mockState = BGMockStatePickerStateable()
-		mockState.text = mockText
-		mockState.color = mockTextColor
-		mockState.font = mockTextFont
-		mockState.backgroundColor = mockBackgroundColor
-		mockState.size = mockSize
 
 		let view = BGStatePickerView()
 		let datasource = BGMockStatePickerDatasource()
@@ -47,15 +37,15 @@ class BGStatePickerStateableTests: XCTestCase {
 			return
 		}
 		subview.layoutIfNeeded()
-		XCTAssertEqual(subview.titleLabel?.text, mockText)
-		XCTAssertEqual(subview.titleLabel?.font, mockTextFont)
-		XCTAssertEqual(subview.titleLabel?.textColor, mockTextColor)
-		XCTAssertEqual(subview.frame.size, mockSize)
+		XCTAssertEqual(subview.titleLabel?.text, mockState.stateText)
+		XCTAssertEqual(subview.titleLabel?.font, mockState.stateTextFont)
+		XCTAssertEqual(subview.titleLabel?.textColor, mockState.stateTextColor)
+		XCTAssertEqual(subview.frame.size, mockState.stateSize)
 		guard let backgroundColor = subview.backgroundColor else {
 			XCTFail()
 			return
 		}
 
-		XCTAssertEqual(backgroundColor, mockBackgroundColor)
+		XCTAssertEqual(backgroundColor, mockState.stateBackgroundColor)
 	}
 }
