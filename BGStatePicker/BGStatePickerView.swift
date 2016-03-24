@@ -46,22 +46,21 @@ public class BGStatePickerView: UIView {
 		}
 	}
 
-	func buttonFromState(state: BGStateable) -> UIButton {
-		let action = #selector(didTapOnState)
-		let button = UIButton()
-		button.backgroundColor = state.stateBackgroundColor
-		button.setTitle(state.stateText, forState: .Normal)
-		button.titleLabel?.font = state.stateTextFont
-		button.setTitleColor(state.stateTextColor, forState: .Normal)
-		button.addTarget(self, action: action, forControlEvents: .TouchUpInside)
-		return button
+	func buttonFromState(state: BGStateable) -> BGStateView {
+		let action = #selector(BGStatePickerView.didTapOnState(_:))
+		let stateView = BGStateView(state: state)
+		stateView.addTarget(self, action: action, forControlEvents: .TouchUpInside)
+		return stateView
 	}
 
-	func didTapOnState(sender: UIView) {
+	func didTapOnState(sender: BGStateView) {
 		// retrieve selected state
+		let state = sender.pickerState
 
 		// update selected state
+		selected = state
 
 		// call delegate
+		delegate?.didPickState(state)
 	}
 }

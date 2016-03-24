@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		statePickerView.datasource = self
+		statePickerView.delegate = self
 		statePickerView.reloadData()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
@@ -33,5 +34,11 @@ extension ViewController: BGStatePickerDatasource {
 	}
 	func stateForIndex(index: Int) -> BGStateable {
 		return states[index]
+	}
+}
+
+extension ViewController: BGStatePickerDelegate {
+	func didPickState(state: BGStateable) {
+		print("You pick state " + state.stateText)
 	}
 }
