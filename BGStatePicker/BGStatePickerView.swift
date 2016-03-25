@@ -16,6 +16,7 @@ public class BGStatePickerView: UIView {
 
 	var selected: BGStateable?
 	var cachedStates: [BGStateable] = []
+	var folded = false
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -62,5 +63,8 @@ public class BGStatePickerView: UIView {
 
 		// call delegate
 		delegate?.didPickState(state)
+
+		// update
+		self.folded = !folded
 	}
 }
