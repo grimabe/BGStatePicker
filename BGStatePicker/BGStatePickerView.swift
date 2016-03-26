@@ -17,6 +17,7 @@ public class BGStatePickerView: UIView {
 	var selected: BGStateable?
 	var cachedStates: [BGStateable] = []
 	var folded = false
+	var animationDuration = 1.0
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -45,6 +46,7 @@ public class BGStatePickerView: UIView {
 				self.addSubview(button)
 			}
 		}
+		self.reloadViews()
 	}
 
 	func buttonFromState(state: BGStateable) -> BGStateView {
@@ -66,5 +68,16 @@ public class BGStatePickerView: UIView {
 
 		// update
 		self.folded = !folded
+
+		// refresh view
+		self.reloadViews()
+	}
+
+	func reloadViews() {
+		UIView.animateWithDuration(animationDuration) {
+			self.subviews.forEach {
+				$0.hidden = self.folded
+			}
+		}
 	}
 }
