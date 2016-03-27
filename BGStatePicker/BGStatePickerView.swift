@@ -76,7 +76,11 @@ public class BGStatePickerView: UIView {
 	func reloadViews() {
 		UIView.animateWithDuration(animationDuration) {
 			self.subviews.forEach {
-				$0.hidden = self.folded
+				if self.selected != nil {
+					$0.hidden = self.folded
+				} else {
+					$0.hidden = false
+				}
 			}
 		}
 	}
