@@ -9,7 +9,7 @@
 import UIKit
 
 class BGStateView: UIButton {
-	var pickerState: BGStateable!
+	var pickerState: BGStateable?
 
 	init(state: BGStateable) {
 		self.pickerState = state

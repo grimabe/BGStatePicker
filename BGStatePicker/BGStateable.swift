@@ -43,3 +43,7 @@ public extension BGStateable {
 		}
 	}
 }
+
+func == (lhs: BGStateable, rhs: BGStateable) -> Bool {
+	return lhs.stateText == rhs.stateText
+}

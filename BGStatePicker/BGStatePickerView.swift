@@ -58,14 +58,13 @@ public class BGStatePickerView: UIView {
 
 	func didTapOnState(sender: BGStateView) {
 		// retrieve selected state
-		let state = sender.pickerState
+		if let state = sender.pickerState {
+			// update selected state
+			selected = state
 
-		// update selected state
-		selected = state
-
-		// call delegate
-		delegate?.didPickState(state)
-
+			// call delegate
+			delegate?.didPickState(state)
+		}
 		// update
 		self.folded = !folded
 
@@ -76,10 +75,16 @@ public class BGStatePickerView: UIView {
 	func reloadViews() {
 		UIView.animateWithDuration(animationDuration) {
 			self.subviews.forEach {
-				if self.selected != nil {
-					$0.hidden = self.folded
-				} else {
-					$0.hidden = false
+				if self.selected == nil {
+					return $0.hidden = false
+				}
+
+				if let sub = $0 as? BGStateView {
+					if let s1 = sub.pickerState, s2 = self.selected where s1 == s2 {
+						$0.hidden = false
+					} else {
+						$0.hidden = true
+					}
 				}
 			}
 		}
