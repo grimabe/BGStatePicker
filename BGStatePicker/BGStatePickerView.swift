@@ -18,6 +18,7 @@ public class BGStatePickerView: UIView {
 	var cachedStates: [BGStateable] = []
 	var folded = false
 	var animationDuration = 1.0
+	var selectedIndex: Int?
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -61,6 +62,9 @@ public class BGStatePickerView: UIView {
 		if let state = sender.pickerState {
 			// update selected state
 			selected = state
+			if let i = self.subviews.indexOf(sender) {
+				selectedIndex = i
+			}
 
 			// call delegate
 			delegate?.didPickState(state)
@@ -73,18 +77,44 @@ public class BGStatePickerView: UIView {
 	}
 
 	func reloadViews() {
-		UIView.animateWithDuration(animationDuration) {
-			self.subviews.forEach {
-				if self.selected == nil {
-					return $0.hidden = false
-				}
 
-				if let sub = $0 as? BGStateView {
-					if let s1 = sub.pickerState, s2 = self.selected where s1 == s2 {
-						$0.hidden = false
-					} else {
-						$0.hidden = true
+		if let i = self.selectedIndex {
+			if let current = self.subviews[i] as? BGStateView {
+				self.willRemoveSubview(current)
+				current.removeFromSuperview()
+				self.insertSubview(current, atIndex: 0)
+			}
+		}
+
+		UIView.animateWithDuration(1.0, animations: {
+			var x: CGFloat = 0.0
+			self.subviews.forEach {
+				if self.folded {
+					$0.frame.origin.x = 0.0
+				} else {
+					if let sub = $0 as? BGStateView {
+						if let s1 = sub.pickerState, s2 = self.selected where s1 == s2 {
+							$0.frame.origin.x = 0.0
+						} else {
+							$0.frame.origin.x = x
+						}
 					}
+				}
+				x += $0.frame.width
+			}
+		}) { (Bool) in
+
+			self.subviews.forEach {
+				if self.folded {
+					if let sub = $0 as? BGStateView {
+						if let s1 = sub.pickerState, s2 = self.selected where s1 == s2 {
+							$0.hidden = false
+						} else {
+							$0.hidden = true
+						}
+					}
+				} else {
+					$0.hidden = false
 				}
 			}
 		}
