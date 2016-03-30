@@ -80,18 +80,18 @@ public class BGStatePickerView: UIView {
 
 		if let i = self.selectedIndex {
 			if let current = self.subviews[i] as? BGStateView {
-				self.willRemoveSubview(current)
 				current.removeFromSuperview()
-				self.insertSubview(current, atIndex: 0)
+				self.addSubview(current)
 			}
 		}
-
+		let v = self.subviews.reverse()
 		UIView.animateWithDuration(1.0, animations: {
 			var x: CGFloat = 0.0
-			self.subviews.forEach {
+			v.forEach {
 				if self.folded {
 					$0.frame.origin.x = 0.0
 				} else {
+					$0.hidden = false
 					if let sub = $0 as? BGStateView {
 						if let s1 = sub.pickerState, s2 = self.selected where s1 == s2 {
 							$0.frame.origin.x = 0.0
