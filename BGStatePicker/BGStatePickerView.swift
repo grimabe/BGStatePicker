@@ -7,8 +7,7 @@
 //
 
 import UIKit
-public func toto() {
-}
+
 public class BGStatePickerView: UIView {
 
 	public var delegate: BGStatePickerDelegate?
@@ -17,7 +16,7 @@ public class BGStatePickerView: UIView {
 	var selected: BGStateable?
 	var cachedStates: [BGStateable] = []
 	var folded = false
-	var animationDuration = 1.0
+	var animationDuration = 0.33
 	var selectedIndex: Int?
 
 	public override init(frame: CGRect) {
@@ -85,7 +84,7 @@ public class BGStatePickerView: UIView {
 			}
 		}
 		let v = self.subviews.reverse()
-		UIView.animateWithDuration(1.0, animations: {
+		UIView.animateWithDuration(animationDuration, animations: {
 			var x: CGFloat = 0.0
 			v.forEach {
 				if self.folded {

@@ -24,10 +24,20 @@
                                     <constraint firstAttribute="height" constant="80" id="1VQ-Ug-mFa"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wta-mg-DkW" customClass="BGStatePickerView">
+                                <rect key="frame" x="0.0" y="122" width="600" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="dJ4-jS-OJg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wta-mg-DkW" firstAttribute="trailing" secondItem="KE8-UT-fgd" secondAttribute="trailing" id="278-3h-6jl"/>
+                            <constraint firstItem="wta-mg-DkW" firstAttribute="leading" secondItem="KE8-UT-fgd" secondAttribute="leading" id="T6p-2K-tQe"/>
                             <constraint firstItem="KE8-UT-fgd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VzD-ch-Wbc"/>
+                            <constraint firstItem="wta-mg-DkW" firstAttribute="top" secondItem="KE8-UT-fgd" secondAttribute="bottom" constant="42" id="XsU-HV-TLF"/>
                             <constraint firstItem="KE8-UT-fgd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jGV-wh-kTm"/>
                             <constraint firstAttribute="trailing" secondItem="KE8-UT-fgd" secondAttribute="trailing" id="vti-yB-Jdf"/>
                         </constraints>

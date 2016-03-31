@@ -26,6 +26,9 @@
 		418E4A8B1CA1ED5300EDD908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 418E4A891CA1ED5300EDD908 /* LaunchScreen.storyboard */; };
 		418E4A911CA1EF5100EDD908 /* StateOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418E4A901CA1EF5100EDD908 /* StateOpen.swift */; };
 		418E4A931CA1F2EB00EDD908 /* StateClosed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418E4A921CA1F2EB00EDD908 /* StateClosed.swift */; };
+		4194F91B1CADBC76009F9983 /* StateNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194F91A1CADBC76009F9983 /* StateNew.swift */; };
+		4194F91D1CADBCE0009F9983 /* StateOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194F91C1CADBCE0009F9983 /* StateOld.swift */; };
+		4194F91F1CADBD19009F9983 /* StateAncestral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194F91E1CADBD19009F9983 /* StateAncestral.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		418E4A8C1CA1ED5300EDD908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		418E4A901CA1EF5100EDD908 /* StateOpen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateOpen.swift; sourceTree = "<group>"; };
 		418E4A921CA1F2EB00EDD908 /* StateClosed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateClosed.swift; sourceTree = "<group>"; };
+		4194F91A1CADBC76009F9983 /* StateNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateNew.swift; sourceTree = "<group>"; };
+		4194F91C1CADBCE0009F9983 /* StateOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateOld.swift; sourceTree = "<group>"; };
+		4194F91E1CADBD19009F9983 /* StateAncestral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateAncestral.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,9 @@
 				418E4A8C1CA1ED5300EDD908 /* Info.plist */,
 				418E4A901CA1EF5100EDD908 /* StateOpen.swift */,
 				418E4A921CA1F2EB00EDD908 /* StateClosed.swift */,
+				4194F91A1CADBC76009F9983 /* StateNew.swift */,
+				4194F91C1CADBCE0009F9983 /* StateOld.swift */,
+				4194F91E1CADBD19009F9983 /* StateAncestral.swift */,
 			);
 			path = BGStatePickerExample;
 			sourceTree = "<group>";
@@ -345,8 +354,11 @@
 			files = (
 				418E4A831CA1ED5300EDD908 /* ViewController.swift in Sources */,
 				418E4A911CA1EF5100EDD908 /* StateOpen.swift in Sources */,
+				4194F91F1CADBD19009F9983 /* StateAncestral.swift in Sources */,
 				418E4A811CA1ED5300EDD908 /* AppDelegate.swift in Sources */,
+				4194F91B1CADBC76009F9983 /* StateNew.swift in Sources */,
 				418E4A931CA1F2EB00EDD908 /* StateClosed.swift in Sources */,
+				4194F91D1CADBCE0009F9983 /* StateOld.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

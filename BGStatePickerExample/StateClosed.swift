@@ -12,5 +12,5 @@ import BGStatePicker
 class StateClosed: BGStateable {
 
 	var stateText: String = "Close"
-	var stateBackgroundColor: UIColor = .redColor();
+	var stateBackgroundColor: UIColor = .redColor()
 }
