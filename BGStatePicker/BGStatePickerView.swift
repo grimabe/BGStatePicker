@@ -36,8 +36,8 @@ public class BGStatePickerView: UIView {
 		var xOffset: CGFloat = 0
 
 		if let datasource = datasource {
-			for index in 0 ..< datasource.numberOfState() {
-				let state: BGStateable = datasource.stateForIndex(index)
+			for index in 0 ..< datasource.numberOfState(self) {
+				let state: BGStateable = datasource.stateForIndex(self, index: index)
 				cachedStates.append(state)
 				let button = self.buttonFromState(state)
 				let size = state.stateSize

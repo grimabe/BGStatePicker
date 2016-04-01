@@ -29,11 +29,19 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: BGStatePickerDatasource {
-	func numberOfState() -> Int {
-		return 2
+	func numberOfState(pickerState: BGStatePickerView) -> Int {
+		if pickerState == self.statePickerView {
+			return states.count
+		} else {
+			return 0
+		}
 	}
-	func stateForIndex(index: Int) -> BGStateable {
-		return states[index]
+
+	func stateForIndex(pickerState: BGStatePickerView, index: Int) -> BGStateable {
+		if pickerState == self.statePickerView {
+			return states[index]
+		}
+		return states[0]
 	}
 }
 
