@@ -12,13 +12,21 @@ import BGStatePicker
 class ViewController: UIViewController {
 
 	@IBOutlet weak var statePickerView: BGStatePickerView!
-	let states: [BGStateable] = [StateOpen(), StateClosed()]
+	@IBOutlet weak var agePickerStateView: BGStatePickerView!
+
+	let statusStates: [BGStateable] = [StateOpen(), StateClosed()]
+	let ageStates: [BGStateable] = [StateNew(), StateOld(), StateAncestral()]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		statePickerView.datasource = self
 		statePickerView.delegate = self
+
+		agePickerStateView.datasource = self
+		agePickerStateView.delegate = self
+
 		statePickerView.reloadData()
+		agePickerStateView.reloadData()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
@@ -30,18 +38,25 @@ class ViewController: UIViewController {
 
 extension ViewController: BGStatePickerDatasource {
 	func numberOfState(pickerState: BGStatePickerView) -> Int {
-		if pickerState == self.statePickerView {
-			return states.count
-		} else {
+		switch pickerState {
+		case statePickerView:
+			return statusStates.count
+		case agePickerStateView:
+			return ageStates.count
+		default:
 			return 0
 		}
 	}
 
 	func stateForIndex(pickerState: BGStatePickerView, index: Int) -> BGStateable {
-		if pickerState == self.statePickerView {
-			return states[index]
+		switch pickerState {
+		case statePickerView:
+			return statusStates[index]
+		case agePickerStateView:
+			return ageStates[index]
+		default:
+			return statusStates[0]
 		}
-		return states[0]
 	}
 }
 

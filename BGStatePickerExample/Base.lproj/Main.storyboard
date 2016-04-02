@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="80" id="1VQ-Ug-mFa"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wta-mg-DkW" customClass="BGStatePickerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wta-mg-DkW" customClass="BGStatePickerView" customModule="BGStatePicker">
                                 <rect key="frame" x="0.0" y="122" width="600" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -43,6 +43,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="agePickerStateView" destination="wta-mg-DkW" id="mBa-do-248"/>
                         <outlet property="statePickerView" destination="KE8-UT-fgd" id="Hsd-8k-EOs"/>
                     </connections>
                 </viewController>
