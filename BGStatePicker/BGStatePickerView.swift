@@ -33,16 +33,11 @@ public class BGStatePickerView: UIView {
 
 		cachedStates = [BGStateable]()
 
-		var xOffset: CGFloat = 0
-
 		if let datasource = datasource {
 			for index in 0 ..< datasource.numberOfState(self) {
 				let state: BGStateable = datasource.stateForIndex(self, index: index)
 				cachedStates.append(state)
 				let button = self.buttonFromState(state)
-				let size = state.stateSize
-				button.frame = CGRect(x: xOffset, y: 0, width: size.width, height: size.height)
-				xOffset += size.width
 				self.addSubview(button)
 			}
 		}
@@ -76,14 +71,28 @@ public class BGStatePickerView: UIView {
 	}
 
 	func reloadViews() {
-		self.userInteractionEnabled = false
+		userInteractionEnabled = false
 
+		// reload stateview sizes
+		subviews.forEach {
+			if let sub = $0 as? BGStateView {
+				if let size = sub.pickerState?.stateSize {
+					var f = $0.frame
+					f.size = size
+					$0.frame = f
+				}
+			}
+		}
+
+		// set z-index
 		if let i = self.selectedIndex {
 			if let current = self.subviews[i] as? BGStateView {
 				current.removeFromSuperview()
 				self.addSubview(current)
 			}
 		}
+
+		// set position within an animation
 		let v = self.subviews.reverse()
 		UIView.animateWithDuration(animationDuration, animations: {
 			var x: CGFloat = 0.0
