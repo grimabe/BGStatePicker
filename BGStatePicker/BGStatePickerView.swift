@@ -76,6 +76,7 @@ public class BGStatePickerView: UIView {
 	}
 
 	func reloadViews() {
+		self.userInteractionEnabled = false
 
 		if let i = self.selectedIndex {
 			if let current = self.subviews[i] as? BGStateView {
@@ -102,7 +103,7 @@ public class BGStatePickerView: UIView {
 				x += $0.frame.width
 			}
 		}) { (Bool) in
-
+			self.userInteractionEnabled = true
 			self.subviews.forEach {
 				if self.folded {
 					if let sub = $0 as? BGStateView {

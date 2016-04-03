@@ -13,4 +13,5 @@ class StateNew: BGStateable {
 
 	var stateText: String = "New"
 	var stateBackgroundColor: UIColor = .greenColor()
+	var stateSize: CGSize = CGSize(width: 80, height: 80)
 }
