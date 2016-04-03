@@ -35,9 +35,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: BGStatePickerDatasource {
-	func numberOfState(pickerState: BGStatePickerView) -> Int {
-		switch pickerState {
-		case statePickerView:
+
+	func numberOfState(statePickerView: BGStatePickerView) -> Int {
+		switch statePickerView {
+		case self.statePickerView:
 			return statusStates.count
 		case agePickerStateView:
 			return ageStates.count
@@ -45,10 +46,9 @@ extension ViewController: BGStatePickerDatasource {
 			return 0
 		}
 	}
-
-	func stateForIndex(pickerState: BGStatePickerView, index: Int) -> BGStateable {
-		switch pickerState {
-		case statePickerView:
+	func stateForIndex(statePickerView: BGStatePickerView, index: Int) -> BGStateable {
+		switch statePickerView {
+		case self.statePickerView:
 			return statusStates[index]
 		case agePickerStateView:
 			return ageStates[index]
@@ -59,7 +59,8 @@ extension ViewController: BGStatePickerDatasource {
 }
 
 extension ViewController: BGStatePickerDelegate {
-	func didPickState(state: BGStateable) {
+
+	func didPickState(statePickerView: BGStatePickerView, state: BGStateable) {
 		print("You pick state " + state.stateText)
 	}
 }

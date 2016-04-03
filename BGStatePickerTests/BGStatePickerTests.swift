@@ -12,10 +12,12 @@ import XCTest
 class BGStatePickerTests: XCTestCase {
 
 	var view: BGStatePickerView!
+	var datasource: BGMockStatePickerDatasource!
 
 	override func setUp() {
 		super.setUp()
 		view = BGStatePickerView()
+		datasource = BGMockStatePickerDatasource()
 	}
 
 	override func tearDown() {
@@ -29,7 +31,6 @@ class BGStatePickerTests: XCTestCase {
 	}
 
 	func testPickerViewDataSource() {
-		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 0)
@@ -37,7 +38,6 @@ class BGStatePickerTests: XCTestCase {
 
 	func testPickerViewDataSourceWithOneState() {
 		XCTAssertEqual(view.subviews.count, 0)
-		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
 		datasource.states = [BGMockStatePickerStateable()]
 		XCTAssertEqual(view.subviews.count, 0)
@@ -46,7 +46,6 @@ class BGStatePickerTests: XCTestCase {
 	}
 
 	func testPickerViewDataSourceWithOneStateAndChangeTheStatesAfterInit() {
-		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
 		datasource.states = [BGMockStatePickerStateable()]
 		XCTAssertEqual(view.subviews.count, 0)
@@ -59,7 +58,6 @@ class BGStatePickerTests: XCTestCase {
 	}
 
 	func testPickerViewDataSourceWithOneStateAndAddAStateAfterReload() {
-		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
 		datasource.states = [BGMockStatePickerStateable()]
 		view.reloadData()
@@ -70,7 +68,6 @@ class BGStatePickerTests: XCTestCase {
 	}
 
 	func testPickerViewDataSourceWithTwoStatesAndChangeTheStatesAfterInit() {
-		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
 		datasource.states = [BGMockStatePickerStateable(), BGMockStatePickerStateable()]
 		view.reloadData()
@@ -78,5 +75,21 @@ class BGStatePickerTests: XCTestCase {
 		datasource.states = [BGMockStatePickerStateable()]
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 1)
+	}
+
+	func testPickerStatePicker() {
+		view.datasource = datasource
+		datasource.states = [BGMockStatePickerStateable(), BGMockStatePickerStateable()]
+		view.reloadData()
+		if let sub = view.subviews.first! as? BGStateView {
+			view.didTapOnState(sub)
+			if let selected = view.selected {
+				XCTAssertEqual(selected.stateText, datasource.states[0].stateText)
+			} else {
+				XCTFail()
+			}
+		} else {
+			XCTFail()
+		}
 	}
 }

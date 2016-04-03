@@ -9,6 +9,6 @@
 import Foundation
 
 public protocol BGStatePickerDatasource {
-	func numberOfState(pickerState: BGStatePickerView) -> Int
-	func stateForIndex(pickerState: BGStatePickerView, index: Int) -> BGStateable
+	func numberOfState(statePickerView: BGStatePickerView) -> Int
+	func stateForIndex(statePickerView: BGStatePickerView, index: Int) -> BGStateable
 }

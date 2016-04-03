@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol BGStatePickerDelegate {
-	func didPickState(state: BGStateable)
+	func didPickState(statePickerView: BGStatePickerView, state: BGStateable)
 }

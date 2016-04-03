@@ -11,6 +11,6 @@ import BGStatePicker
 
 class BGMockStatePickerDelegate: BGStatePickerDelegate {
 
-	func didPickState(state: BGStateable) {
+	func didPickState(statePickerView: BGStatePickerView, state: BGStateable) {
 	}
 }
