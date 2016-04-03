@@ -83,7 +83,7 @@ class BGStatePickerTests: XCTestCase {
 		view.reloadData()
 		if let sub = view.subviews.first! as? BGStateView {
 			view.didTapOnState(sub)
-			if let selected = view.selected {
+			if let selected = view.selectedValue {
 				XCTAssertEqual(selected.stateText, datasource.states[0].stateText)
 			} else {
 				XCTFail()

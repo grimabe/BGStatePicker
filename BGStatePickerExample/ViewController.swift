@@ -20,10 +20,9 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		statePickerView.datasource = self
-		statePickerView.delegate = self
-
+		statePickerView.addTarget(self, action: #selector(pickState(_:)), forControlEvents: [.ValueChanged])
 		agePickerStateView.datasource = self
-		agePickerStateView.delegate = self
+		agePickerStateView.addTarget(self, action: #selector(pickState(_:)), forControlEvents: [.ValueChanged])
 
 		statePickerView.reloadData()
 		agePickerStateView.reloadData()
@@ -31,6 +30,10 @@ class ViewController: UIViewController {
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
+	}
+
+	func pickState(sender: BGStatePickerView) {
+		print("You pick state \(sender.selectedValue?.stateText)")
 	}
 }
 
@@ -55,12 +58,5 @@ extension ViewController: BGStatePickerDatasource {
 		default:
 			return statusStates[0]
 		}
-	}
-}
-
-extension ViewController: BGStatePickerDelegate {
-
-	func didPickState(statePickerView: BGStatePickerView, state: BGStateable) {
-		print("You pick state " + state.stateText)
 	}
 }

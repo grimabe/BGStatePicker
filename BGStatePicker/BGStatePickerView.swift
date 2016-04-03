@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class BGStatePickerView: UIView {
+public class BGStatePickerView: UIControl {
 
-	public var delegate: BGStatePickerDelegate?
 	public var datasource: BGStatePickerDatasource?
 
-	var selected: BGStateable?
+	private(set) public var selectedValue: BGStateable?
+
 	var cachedStates: [BGStateable] = []
 	var folded = false
 	var animationDuration = 0.33
@@ -57,13 +57,13 @@ public class BGStatePickerView: UIView {
 		// retrieve selected state
 		if let state = sender.pickerState {
 			// update selected state
-			selected = state
+			selectedValue = state
 			if let i = subviews.indexOf(sender) {
 				selectedIndex = i
 			}
 
 			// call delegate
-			delegate?.didPickState(self, state: state)
+			sendActionsForControlEvents([.ValueChanged])
 		}
 		// update
 		folded = !folded
@@ -94,7 +94,7 @@ public class BGStatePickerView: UIView {
 				} else {
 					$0.hidden = false
 					if let sub = $0 as? BGStateView {
-						if let s1 = sub.pickerState, s2 = self.selected where s1 == s2 {
+						if let s1 = sub.pickerState, s2 = self.selectedValue where s1 == s2 {
 
 							$0.frame.origin.x = 0.0
 						} else {
@@ -135,7 +135,7 @@ public class BGStatePickerView: UIView {
 		subviews.reverse().forEach {
 			if folded {
 				if let sub = $0 as? BGStateView {
-					if let s1 = sub.pickerState, s2 = selected where s1 == s2 {
+					if let s1 = sub.pickerState, s2 = selectedValue where s1 == s2 {
 						$0.hidden = false
 					} else {
 						$0.hidden = true
@@ -152,7 +152,7 @@ public class BGStatePickerView: UIView {
 		if let v = super.hitTest(point, withEvent: event) {
 			return v
 		}
-		if selected != nil && !reloading {
+		if selectedValue != nil && !reloading {
 			folded = true
 			reloadViews()
 		}
