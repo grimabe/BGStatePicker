@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 public class BGStatePickerView: UIControl {
 
 	public var datasource: BGStatePickerDatasource?
@@ -18,8 +19,9 @@ public class BGStatePickerView: UIControl {
 	var folded = false
 	var animationDuration = 0.33
 	var selectedIndex: Int?
-
 	var reloading = false
+
+	@IBInspectable var foldLeft: Bool = true
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -157,5 +159,12 @@ public class BGStatePickerView: UIControl {
 			reloadViews()
 		}
 		return nil
+	}
+
+	public override func prepareForInterfaceBuilder() {
+		let label = UILabel(frame: bounds)
+		label.text = foldLeft ? "Coming left => " : "Coming right <="
+		label.textAlignment = foldLeft ? .Left : .Right
+		self.addSubview(label)
 	}
 }
