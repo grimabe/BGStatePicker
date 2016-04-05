@@ -12,6 +12,6 @@ import BGStatePicker
 class StateAncestral: BGStateable {
 
 	var stateText: String = "Ancestral"
-	var stateBackgroundColor: UIColor = .brownColor();
+	var stateBackgroundColor: UIColor = .brownColor()
 	var stateSize: CGSize = CGSize(width: 80, height: 80)
 }

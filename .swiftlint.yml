@@ -1,4 +1,2 @@
 disabled_rules:
   - trailing_whitespace
-excluded:
-  - BGStatePickerExample

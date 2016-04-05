@@ -20,9 +20,10 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		statePickerView.datasource = self
-		statePickerView.addTarget(self, action: #selector(pickState(_:)), forControlEvents: [.ValueChanged])
+		let sel = #selector(pickState(_:))
+		statePickerView.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
 		agePickerStateView.datasource = self
-		agePickerStateView.addTarget(self, action: #selector(pickState(_:)), forControlEvents: [.ValueChanged])
+		agePickerStateView.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
 
 		statePickerView.reloadData()
 		agePickerStateView.reloadData()
