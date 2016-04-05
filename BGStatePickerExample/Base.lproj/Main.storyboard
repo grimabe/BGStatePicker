@@ -24,8 +24,6 @@
                                     <constraint firstAttribute="height" constant="80" id="1VQ-Ug-mFa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="shapeName" value="Rectangle"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="comingFromRight" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="foldLeft" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -35,9 +33,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="dJ4-jS-OJg"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="orientation" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -20,6 +20,7 @@ public class BGStatePickerView: UIControl {
 	var animationDuration = 0.33
 	var selectedIndex: Int?
 	var reloading = false
+	var initiated = false
 
 	@IBInspectable var foldLeft: Bool = true
 
@@ -29,7 +30,11 @@ public class BGStatePickerView: UIControl {
 	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
-
+	public override func layoutSubviews() {
+		super.layoutSubviews()
+		initiated = true
+		reloadViews()
+	}
 	public func reloadData() {
 		subviews.forEach {
 			$0.removeFromSuperview()
@@ -76,7 +81,7 @@ public class BGStatePickerView: UIControl {
 
 	func reloadViews() {
 
-		if reloading {
+		if !initiated || reloading {
 			return
 		}
 		reloading = true
@@ -84,27 +89,24 @@ public class BGStatePickerView: UIControl {
 		userInteractionEnabled = false
 
 		reloadViewsBasedOnDataSource()
-
 		bringSelectedViewToFront()
-
 		// set position within an animation
 		UIView.animateWithDuration(animationDuration, animations: {
-			var x: CGFloat = 0.0
+			var x: CGFloat = self.foldLeft ? 0.0 : self.frame.width
 			self.subviews.reverse().forEach {
 				if self.folded {
-					$0.frame.origin.x = 0.0
+					$0.frame.origin.x = self.foldLeft ? 0.0 : self.frame.width - $0.frame.width
 				} else {
 					$0.hidden = false
 					if let sub = $0 as? BGStateView {
 						if let s1 = sub.pickerState, s2 = self.selectedValue where s1 == s2 {
-
-							$0.frame.origin.x = 0.0
+							$0.frame.origin.x = self.foldLeft ? 0.0 : self.frame.width - $0.frame.width
 						} else {
-							$0.frame.origin.x = x
+							$0.frame.origin.x = self.foldLeft ? x : x - $0.frame.width
 						}
 					}
 				}
-				x += $0.frame.width
+				x += self.foldLeft ? $0.frame.width : -$0.frame.width
 			}
 		}) { (Bool) in
 			self.animationCompleted()
