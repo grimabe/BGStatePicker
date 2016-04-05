@@ -36,7 +36,7 @@ class BGStatePickerStateableTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		subview.layoutIfNeeded()
+		view.layoutIfNeeded()
 		XCTAssertEqual(subview.titleLabel?.text, mockState.stateText)
 		XCTAssertEqual(subview.titleLabel?.font, mockState.stateTextFont)
 		XCTAssertEqual(subview.titleLabel?.textColor, mockState.stateTextColor)

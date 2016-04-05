@@ -33,7 +33,7 @@ public class BGStatePickerView: UIControl {
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 		initiated = true
-		reloadViews()
+		reloadViews(false)
 	}
 	public func reloadData() {
 		subviews.forEach {
@@ -50,7 +50,7 @@ public class BGStatePickerView: UIControl {
 				addSubview(button)
 			}
 		}
-		reloadViews()
+		reloadViews(false)
 	}
 
 	func buttonFromState(state: BGStateable) -> BGStateView {
@@ -76,10 +76,10 @@ public class BGStatePickerView: UIControl {
 		folded = !folded
 
 		// refresh view
-		reloadViews()
+		reloadViews(true)
 	}
 
-	func reloadViews() {
+	func reloadViews(animated: Bool) {
 
 		if !initiated || reloading {
 			return
@@ -88,32 +88,23 @@ public class BGStatePickerView: UIControl {
 
 		userInteractionEnabled = false
 
-		reloadViewsBasedOnDataSource()
+		reloadSizes()
 		bringSelectedViewToFront()
 		// set position within an animation
-		UIView.animateWithDuration(animationDuration, animations: {
-			var x: CGFloat = self.foldLeft ? 0.0 : self.frame.width
-			self.subviews.reverse().forEach {
-				if self.folded {
-					$0.frame.origin.x = self.foldLeft ? 0.0 : self.frame.width - $0.frame.width
-				} else {
-					$0.hidden = false
-					if let sub = $0 as? BGStateView {
-						if let s1 = sub.pickerState, s2 = self.selectedValue where s1 == s2 {
-							$0.frame.origin.x = self.foldLeft ? 0.0 : self.frame.width - $0.frame.width
-						} else {
-							$0.frame.origin.x = self.foldLeft ? x : x - $0.frame.width
-						}
-					}
-				}
-				x += self.foldLeft ? $0.frame.width : -$0.frame.width
+
+		if animated {
+			UIView.animateWithDuration(animationDuration, animations: {
+				self.reloadPositions()
+			}) { (Bool) in
+				self.animationCompleted()
 			}
-		}) { (Bool) in
+		} else {
+			self.reloadPositions()
 			self.animationCompleted()
 		}
 	}
 
-	func reloadViewsBasedOnDataSource() {
+	func reloadSizes() {
 		// reload stateview sizes
 		subviews.forEach {
 			if let sub = $0 as? BGStateView {
@@ -131,6 +122,25 @@ public class BGStatePickerView: UIControl {
 			if let current = subviews[i] as? BGStateView {
 				bringSubviewToFront(current)
 			}
+		}
+	}
+
+	func reloadPositions() {
+		var x: CGFloat = foldLeft ? 0.0 : frame.width
+		subviews.reverse().forEach {
+			if folded {
+				$0.frame.origin.x = foldLeft ? 0.0 : frame.width - $0.frame.width
+			} else {
+				$0.hidden = false
+				if let sub = $0 as? BGStateView {
+					if let s1 = sub.pickerState, s2 = selectedValue where s1 == s2 {
+						$0.frame.origin.x = foldLeft ? 0.0 : frame.width - $0.frame.width
+					} else {
+						$0.frame.origin.x = foldLeft ? x : x - $0.frame.width
+					}
+				}
+			}
+			x += foldLeft ? $0.frame.width : -$0.frame.width
 		}
 	}
 
@@ -158,7 +168,7 @@ public class BGStatePickerView: UIControl {
 		}
 		if selectedValue != nil && !reloading {
 			folded = true
-			reloadViews()
+			reloadViews(true)
 		}
 		return nil
 	}
@@ -167,6 +177,6 @@ public class BGStatePickerView: UIControl {
 		let label = UILabel(frame: bounds)
 		label.text = foldLeft ? "Coming left => " : "Coming right <="
 		label.textAlignment = foldLeft ? .Left : .Right
-		self.addSubview(label)
+		addSubview(label)
 	}
 }
