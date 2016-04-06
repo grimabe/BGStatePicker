@@ -23,18 +23,22 @@ public class BGStatePickerView: UIControl {
 	var initiated = false
 
 	@IBInspectable var foldLeft: Bool = true
+	@IBInspectable var keepOrder: Bool = true
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
 	}
+
 	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
+
 	public override func layoutSubviews() {
 		super.layoutSubviews()
 		initiated = true
 		reloadViews(false)
 	}
+
 	public func reloadData() {
 		subviews.forEach {
 			$0.removeFromSuperview()
@@ -99,8 +103,8 @@ public class BGStatePickerView: UIControl {
 				self.animationCompleted()
 			}
 		} else {
-			self.reloadPositions()
-			self.animationCompleted()
+			reloadPositions()
+			animationCompleted()
 		}
 	}
 
@@ -133,15 +137,34 @@ public class BGStatePickerView: UIControl {
 			} else {
 				$0.hidden = false
 				if let sub = $0 as? BGStateView {
-					if let s1 = sub.pickerState, s2 = selectedValue where s1 == s2 {
-						$0.frame.origin.x = foldLeft ? 0.0 : frame.width - $0.frame.width
+					if keepOrder {
+						if let state = sub.pickerState {
+							let orderedPosition = self.orderedPosition(state)
+							$0.frame.origin.x = foldLeft ? orderedPosition : frame.width - orderedPosition - state.stateSize.width
+						}
 					} else {
-						$0.frame.origin.x = foldLeft ? x : x - $0.frame.width
+						if let s1 = sub.pickerState, s2 = selectedValue where s1 == s2 {
+							$0.frame.origin.x = foldLeft ? 0.0 : self.frame.width - $0.frame.width
+						} else {
+							$0.frame.origin.x = foldLeft ? x : x - $0.frame.width
+						}
 					}
 				}
 			}
 			x += foldLeft ? $0.frame.width : -$0.frame.width
 		}
+	}
+
+	func orderedPosition(state: BGStateable) -> CGFloat {
+		var position: CGFloat = 0.0
+		for s in cachedStates {
+			if s == state {
+				break
+			}
+			position += state.stateSize.width
+		}
+
+		return position
 	}
 
 	func animationCompleted() {
