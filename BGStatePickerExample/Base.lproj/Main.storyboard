@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,37 +18,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two states : Default Configuration (fromLeft = true, keepOrder = true)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEu-sk-drb">
+                                <rect key="frame" x="20" y="20" width="531" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KE8-UT-fgd" customClass="BGStatePickerView" customModule="BGStatePicker">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="57" width="600" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="1VQ-Ug-mFa"/>
+                                    <constraint firstAttribute="height" constant="40" id="1VQ-Ug-mFa"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two states : (fromLeft = true, keepOrder = false)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ8-FE-Ahl">
+                                <rect key="frame" x="20" y="122" width="369" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-TC-HgM" customClass="BGStatePickerView" customModule="BGStatePicker">
+                                <rect key="frame" x="0.0" y="159" width="600" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wdb-OP-Vne"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="foldLeft" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keepOrder" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three states : Default Configuration (fromLeft = true, keepOrder = true)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBg-XH-XcA">
+                                <rect key="frame" x="20" y="224" width="544" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wta-mg-DkW" customClass="BGStatePickerView" customModule="BGStatePicker">
-                                <rect key="frame" x="0.0" y="122" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="261" width="600" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="dJ4-jS-OJg"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three states : Default Configuration (fromLeft = false, keepOrder = true)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ3-Rd-GhZ">
+                                <rect key="frame" x="13" y="360" width="550" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lA-DA-IDu" customClass="BGStatePickerView" customModule="BGStatePicker">
+                                <rect key="frame" x="0.0" y="410" width="600" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="COB-SM-AyG"/>
+                                    <constraint firstAttribute="height" constant="80" id="dxV-UF-xvy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="foldLeft" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wta-mg-DkW" firstAttribute="trailing" secondItem="KE8-UT-fgd" secondAttribute="trailing" id="278-3h-6jl"/>
+                            <constraint firstItem="9lA-DA-IDu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CYY-yK-xMR"/>
+                            <constraint firstItem="VJ3-Rd-GhZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="Ecg-pS-w3D"/>
+                            <constraint firstItem="WBg-XH-XcA" firstAttribute="top" secondItem="Hex-TC-HgM" secondAttribute="bottom" constant="25" id="G9w-AA-QZq"/>
+                            <constraint firstItem="Hex-TC-HgM" firstAttribute="top" secondItem="FQ8-FE-Ahl" secondAttribute="bottom" constant="16" id="JQa-Du-ELQ"/>
+                            <constraint firstItem="Hex-TC-HgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OrH-OH-OPL"/>
                             <constraint firstItem="wta-mg-DkW" firstAttribute="leading" secondItem="KE8-UT-fgd" secondAttribute="leading" id="T6p-2K-tQe"/>
-                            <constraint firstItem="KE8-UT-fgd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VzD-ch-Wbc"/>
-                            <constraint firstItem="wta-mg-DkW" firstAttribute="top" secondItem="KE8-UT-fgd" secondAttribute="bottom" constant="42" id="XsU-HV-TLF"/>
+                            <constraint firstItem="wta-mg-DkW" firstAttribute="top" secondItem="WBg-XH-XcA" secondAttribute="bottom" constant="16" id="f2C-df-wi9"/>
+                            <constraint firstAttribute="trailing" secondItem="9lA-DA-IDu" secondAttribute="trailing" id="iy6-iF-ZXh"/>
                             <constraint firstItem="KE8-UT-fgd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jGV-wh-kTm"/>
+                            <constraint firstItem="WBg-XH-XcA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lyH-4W-GQ4"/>
+                            <constraint firstItem="FQ8-FE-Ahl" firstAttribute="top" secondItem="KE8-UT-fgd" secondAttribute="bottom" constant="25" id="oNH-lq-7Tk"/>
+                            <constraint firstItem="KE8-UT-fgd" firstAttribute="top" secondItem="uEu-sk-drb" secondAttribute="bottom" constant="16" id="sTg-bo-Sh1"/>
+                            <constraint firstItem="9lA-DA-IDu" firstAttribute="top" secondItem="VJ3-Rd-GhZ" secondAttribute="bottom" constant="29" id="tPL-Z8-qzU"/>
+                            <constraint firstItem="FQ8-FE-Ahl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tjo-ee-ON7"/>
+                            <constraint firstItem="uEu-sk-drb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tny-Qb-xDA"/>
+                            <constraint firstAttribute="trailing" secondItem="Hex-TC-HgM" secondAttribute="trailing" id="vIb-9N-jc8"/>
                             <constraint firstAttribute="trailing" secondItem="KE8-UT-fgd" secondAttribute="trailing" id="vti-yB-Jdf"/>
+                            <constraint firstItem="uEu-sk-drb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wNF-XR-Fd8"/>
+                            <constraint firstItem="VJ3-Rd-GhZ" firstAttribute="top" secondItem="wta-mg-DkW" secondAttribute="bottom" constant="19" id="zqx-ds-j5V"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="agePickerStateView" destination="wta-mg-DkW" id="mBa-do-248"/>
+                        <outlet property="ageStatePickerView2" destination="9lA-DA-IDu" id="Dwp-0l-XIx"/>
                         <outlet property="statePickerView" destination="KE8-UT-fgd" id="Hsd-8k-EOs"/>
+                        <outlet property="statePickerView2" destination="Hex-TC-HgM" id="Uj2-HE-I7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

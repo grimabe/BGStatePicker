@@ -12,21 +12,32 @@ import BGStatePicker
 class ViewController: UIViewController {
 
 	@IBOutlet weak var statePickerView: BGStatePickerView!
+	@IBOutlet weak var statePickerView2: BGStatePickerView!
 	@IBOutlet weak var agePickerStateView: BGStatePickerView!
+	@IBOutlet weak var ageStatePickerView2: BGStatePickerView!
 
 	let statusStates: [BGStateable] = [StateOpen(), StateClosed()]
 	let ageStates: [BGStateable] = [StateNew(), StateOld(), StateAncestral()]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		statePickerView.datasource = self
 		let sel = #selector(pickState(_:))
+
+		statePickerView.datasource = self
 		statePickerView.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		statePickerView.reloadData()
+
+		statePickerView2.datasource = self
+		statePickerView2.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		statePickerView2.reloadData()
+
 		agePickerStateView.datasource = self
 		agePickerStateView.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
-
-		statePickerView.reloadData()
 		agePickerStateView.reloadData()
+
+		ageStatePickerView2.datasource = self
+		ageStatePickerView2.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		ageStatePickerView2.reloadData()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -42,9 +53,9 @@ extension ViewController: BGStatePickerDatasource {
 
 	func numberOfState(statePickerView: BGStatePickerView) -> Int {
 		switch statePickerView {
-		case self.statePickerView:
+		case self.statePickerView, statePickerView2:
 			return statusStates.count
-		case agePickerStateView:
+		case agePickerStateView, ageStatePickerView2:
 			return ageStates.count
 		default:
 			return 0
@@ -52,9 +63,9 @@ extension ViewController: BGStatePickerDatasource {
 	}
 	func stateForIndex(statePickerView: BGStatePickerView, index: Int) -> BGStateable {
 		switch statePickerView {
-		case self.statePickerView:
+		case self.statePickerView, statePickerView2:
 			return statusStates[index]
-		case agePickerStateView:
+		case agePickerStateView, ageStatePickerView2:
 			return ageStates[index]
 		default:
 			return statusStates[0]
