@@ -130,40 +130,39 @@ public class BGStatePickerView: UIControl {
 	}
 
 	func reloadPositions() {
-		var x: CGFloat = foldLeft ? 0.0 : frame.width
+		var offset: CGFloat = foldLeft ? 0 : frame.width
 		subviews.reverse().forEach {
 			if folded {
-				$0.frame.origin.x = foldLeft ? 0.0 : frame.width - $0.frame.width
+				$0.frame.origin.x = foldLeft ? 0 : frame.width - $0.frame.width
 			} else {
 				$0.hidden = false
-				if let sub = $0 as? BGStateView {
+				if let state = ($0 as? BGStateView)?.pickerState {
+					var xPos: CGFloat
 					if keepOrder {
-						if let state = sub.pickerState {
-							let orderedPosition = self.orderedPosition(state)
-							$0.frame.origin.x = foldLeft ? orderedPosition : frame.width - orderedPosition - state.stateSize.width
-						}
+						let xOrderedPos = self.orderedPosition(state)
+						xPos = foldLeft ? xOrderedPos : frame.width - xOrderedPos - state.stateSize.width
 					} else {
-						if let s1 = sub.pickerState, s2 = selectedValue where s1 == s2 {
-							$0.frame.origin.x = foldLeft ? 0.0 : self.frame.width - $0.frame.width
+						if let s2 = selectedValue where state == s2 {
+							xPos = foldLeft ? 0 : self.frame.width - $0.frame.width
 						} else {
-							$0.frame.origin.x = foldLeft ? x : x - $0.frame.width
+							xPos = foldLeft ? offset : offset - $0.frame.width
 						}
 					}
+					$0.frame.origin.x = xPos
 				}
 			}
-			x += foldLeft ? $0.frame.width : -$0.frame.width
+			offset += foldLeft ? $0.frame.width : -$0.frame.width
 		}
 	}
 
 	func orderedPosition(state: BGStateable) -> CGFloat {
-		var position: CGFloat = 0.0
+		var position: CGFloat = 0
 		for s in cachedStates {
 			if s == state {
 				break
 			}
 			position += state.stateSize.width
 		}
-
 		return position
 	}
 
