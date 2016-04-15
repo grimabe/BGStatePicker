@@ -65,6 +65,7 @@ public class BGStatePickerView: UIControl {
 	}
 
 	func didTapOnState(sender: BGStateView) {
+
 		// retrieve selected state
 		if let state = sender.pickerState {
 			// update selected state
@@ -74,7 +75,9 @@ public class BGStatePickerView: UIControl {
 			}
 
 			// call delegate
-			sendActionsForControlEvents([.ValueChanged])
+			if folded ==  false {
+				sendActionsForControlEvents([.ValueChanged])
+			}
 		}
 		// update
 		folded = !folded
