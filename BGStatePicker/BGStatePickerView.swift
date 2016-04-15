@@ -65,7 +65,6 @@ public class BGStatePickerView: UIControl {
 	}
 
 	func didTapOnState(sender: BGStateView) {
-
 		// retrieve selected state
 		if let state = sender.pickerState {
 			// update selected state
@@ -87,7 +86,6 @@ public class BGStatePickerView: UIControl {
 	}
 
 	func reloadViews(animated: Bool) {
-
 		if !initiated || reloading {
 			return
 		}
@@ -193,7 +191,7 @@ public class BGStatePickerView: UIControl {
 	}
 
 	func openPicker(open: Bool, animated: Bool) {
-		if folded == open {
+		if folded == open && !reloading {
 			folded = !open
 			reloadViews(animated)
 		}

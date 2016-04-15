@@ -22,7 +22,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(foldPickers(_:)))
+		let selTap = #selector(foldPickers(_:))
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: selTap)
 		view.addGestureRecognizer(tap)
 
 		let sel = #selector(pickState(_:))
