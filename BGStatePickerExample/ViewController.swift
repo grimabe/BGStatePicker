@@ -21,6 +21,10 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(foldPickers(_:)))
+		view.addGestureRecognizer(tap)
+
 		let sel = #selector(pickState(_:))
 
 		statePickerView.datasource = self
@@ -46,6 +50,13 @@ class ViewController: UIViewController {
 
 	func pickState(sender: BGStatePickerView) {
 		print("You pick state \(sender.selectedValue?.stateText)")
+	}
+
+	func foldPickers(sender: UIView) {
+		statePickerView.close(true)
+		statePickerView2.close(true)
+		agePickerStateView.close(true)
+		ageStatePickerView2.close(true)
 	}
 }
 

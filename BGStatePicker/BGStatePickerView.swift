@@ -75,7 +75,7 @@ public class BGStatePickerView: UIControl {
 			}
 
 			// call delegate
-			if folded ==  false {
+			if folded == false {
 				sendActionsForControlEvents([.ValueChanged])
 			}
 		}
@@ -90,6 +90,11 @@ public class BGStatePickerView: UIControl {
 
 		if !initiated || reloading {
 			return
+		}
+
+		if self.selectedValue == nil && self.cachedStates.count > 0 {
+			selectedValue = cachedStates[0]
+			selectedIndex = 0
 		}
 		reloading = true
 
@@ -187,15 +192,19 @@ public class BGStatePickerView: UIControl {
 		reloading = false
 	}
 
-	public override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-		if let v = super.hitTest(point, withEvent: event) {
-			return v
+	func openPicker(open: Bool, animated: Bool) {
+		if folded == open {
+			folded = !open
+			reloadViews(animated)
 		}
-		if selectedValue != nil && !reloading {
-			folded = true
-			reloadViews(true)
-		}
-		return nil
+	}
+
+	public func open(animated: Bool) {
+		openPicker(true, animated: animated)
+	}
+
+	public func close(animated: Bool) {
+		openPicker(false, animated: animated)
 	}
 
 	public override func prepareForInterfaceBuilder() {
