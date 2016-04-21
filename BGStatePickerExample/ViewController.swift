@@ -16,11 +16,36 @@ class ViewController: UIViewController {
 	@IBOutlet weak var agePickerStateView: BGStatePickerView!
 	@IBOutlet weak var ageStatePickerView2: BGStatePickerView!
 
-	let statusStates: [BGStateable] = [StateOpen(), StateClosed()]
-	let ageStates: [BGStateable] = [StateNew(), StateOld(), StateAncestral()]
+	var statusStates = [BGStateable]()
+	var ageStates = [BGStateable]()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		let openState = BGStateable()
+		openState.stateText = "Open"
+
+		let closedState = BGStateable()
+		closedState.stateText = "Close"
+		closedState.stateBackgroundColor = .redColor()
+
+		let newState = BGStateable()
+		newState.stateText = "New"
+		newState.stateBackgroundColor = .greenColor()
+		newState.stateSize = CGSize(width: 80, height: 80)
+
+		let oldState = BGStateable()
+		oldState.stateText = "Old"
+		oldState.stateBackgroundColor = .orangeColor()
+		oldState.stateSize = CGSize(width: 80, height: 80)
+
+		let ancestralState = BGStateable()
+		ancestralState.stateText = "Ancestral"
+		ancestralState.stateBackgroundColor = .brownColor()
+		ancestralState.stateSize = CGSize(width: 80, height: 80)
+
+		statusStates = [openState, closedState]
+		ageStates = [newState, oldState, ancestralState]
 
 		let selTap = #selector(foldPickers(_:))
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: selTap)
@@ -50,7 +75,9 @@ class ViewController: UIViewController {
 	}
 
 	func pickState(sender: BGStatePickerView) {
-		print("You pick state \(sender.selectedValue?.stateText)")
+		if let state = sender.selectedValue { // BGStateable
+			print("You pick state \(state.stateText)")
+		}
 	}
 
 	func foldPickers(sender: UIView) {

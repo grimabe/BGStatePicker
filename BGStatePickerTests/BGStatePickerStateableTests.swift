@@ -21,12 +21,11 @@ class BGStatePickerStateableTests: XCTestCase {
 
 	func testStateable() {
 
-		let mockState = BGMockStatePickerStateable()
-
 		let view = BGStatePickerView()
 		let datasource = BGMockStatePickerDatasource()
 		view.datasource = datasource
-		datasource.states = [mockState]
+		let sampleState = BGSampleState.state()
+		datasource.states = [sampleState]
 
 		view.reloadData()
 
@@ -37,15 +36,15 @@ class BGStatePickerStateableTests: XCTestCase {
 			return
 		}
 		view.layoutIfNeeded()
-		XCTAssertEqual(subview.titleLabel?.text, mockState.stateText)
-		XCTAssertEqual(subview.titleLabel?.font, mockState.stateTextFont)
-		XCTAssertEqual(subview.titleLabel?.textColor, mockState.stateTextColor)
-		XCTAssertEqual(subview.frame.size, mockState.stateSize)
+		XCTAssertEqual(subview.titleLabel?.text, sampleState.stateText)
+		XCTAssertEqual(subview.titleLabel?.font, sampleState.stateTextFont)
+		XCTAssertEqual(subview.titleLabel?.textColor, sampleState.stateTextColor)
+		XCTAssertEqual(subview.frame.size, sampleState.stateSize)
 		guard let backgroundColor = subview.backgroundColor else {
 			XCTFail()
 			return
 		}
 
-		XCTAssertEqual(backgroundColor, mockState.stateBackgroundColor)
+		XCTAssertEqual(backgroundColor, sampleState.stateBackgroundColor)
 	}
 }

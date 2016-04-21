@@ -13,8 +13,8 @@
 		4102A8C91CA07E0E00CA5F07 /* BGStatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8C81CA07E0E00CA5F07 /* BGStatePickerView.swift */; };
 		4102A8CF1CA07F0200CA5F07 /* BGStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8CE1CA07F0200CA5F07 /* BGStateable.swift */; };
 		4102A8D11CA081B800CA5F07 /* BGStatePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102A8D01CA081B800CA5F07 /* BGStatePickerDataSource.swift */; };
+		412FDEDB1CC972D9000B90A6 /* BGSampleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412FDEDA1CC972D9000B90A6 /* BGSampleState.swift */; };
 		414447431CA0A1CC008563EF /* BGMockStatePickerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447421CA0A1CC008563EF /* BGMockStatePickerDatasource.swift */; };
-		414447451CA0A22C008563EF /* BGMockStatePickerStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447441CA0A22C008563EF /* BGMockStatePickerStateable.swift */; };
 		414447481CA0A6F6008563EF /* BGStatePickerStateableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414447471CA0A6F6008563EF /* BGStatePickerStateableTests.swift */; };
 		4158E6F51CA49A6C0050B997 /* BGStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158E6F41CA49A6C0050B997 /* BGStateView.swift */; };
 		418E4A811CA1ED5300EDD908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418E4A801CA1ED5300EDD908 /* AppDelegate.swift */; };
@@ -22,11 +22,6 @@
 		418E4A861CA1ED5300EDD908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 418E4A841CA1ED5300EDD908 /* Main.storyboard */; };
 		418E4A881CA1ED5300EDD908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 418E4A871CA1ED5300EDD908 /* Assets.xcassets */; };
 		418E4A8B1CA1ED5300EDD908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 418E4A891CA1ED5300EDD908 /* LaunchScreen.storyboard */; };
-		418E4A911CA1EF5100EDD908 /* StateOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418E4A901CA1EF5100EDD908 /* StateOpen.swift */; };
-		418E4A931CA1F2EB00EDD908 /* StateClosed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418E4A921CA1F2EB00EDD908 /* StateClosed.swift */; };
-		4194F91B1CADBC76009F9983 /* StateNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194F91A1CADBC76009F9983 /* StateNew.swift */; };
-		4194F91D1CADBCE0009F9983 /* StateOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194F91C1CADBCE0009F9983 /* StateOld.swift */; };
-		4194F91F1CADBD19009F9983 /* StateAncestral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194F91E1CADBD19009F9983 /* StateAncestral.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +44,8 @@
 		4102A8C81CA07E0E00CA5F07 /* BGStatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerView.swift; sourceTree = "<group>"; };
 		4102A8CE1CA07F0200CA5F07 /* BGStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStateable.swift; sourceTree = "<group>"; };
 		4102A8D01CA081B800CA5F07 /* BGStatePickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerDataSource.swift; sourceTree = "<group>"; };
+		412FDEDA1CC972D9000B90A6 /* BGSampleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGSampleState.swift; sourceTree = "<group>"; };
 		414447421CA0A1CC008563EF /* BGMockStatePickerDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMockStatePickerDatasource.swift; sourceTree = "<group>"; };
-		414447441CA0A22C008563EF /* BGMockStatePickerStateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGMockStatePickerStateable.swift; sourceTree = "<group>"; };
 		414447471CA0A6F6008563EF /* BGStatePickerStateableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStatePickerStateableTests.swift; sourceTree = "<group>"; };
 		4158E6F41CA49A6C0050B997 /* BGStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGStateView.swift; sourceTree = "<group>"; };
 		418E4A7E1CA1ED5300EDD908 /* BGStatePickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BGStatePickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,11 +55,6 @@
 		418E4A871CA1ED5300EDD908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		418E4A8A1CA1ED5300EDD908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		418E4A8C1CA1ED5300EDD908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		418E4A901CA1EF5100EDD908 /* StateOpen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateOpen.swift; sourceTree = "<group>"; };
-		418E4A921CA1F2EB00EDD908 /* StateClosed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateClosed.swift; sourceTree = "<group>"; };
-		4194F91A1CADBC76009F9983 /* StateNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateNew.swift; sourceTree = "<group>"; };
-		4194F91C1CADBCE0009F9983 /* StateOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateOld.swift; sourceTree = "<group>"; };
-		4194F91E1CADBD19009F9983 /* StateAncestral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateAncestral.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,30 +127,11 @@
 			path = BGStatePickerTests;
 			sourceTree = "<group>";
 		};
-		413A0B801CB6E48D00A84FDE /* StatesExample1 */ = {
-			isa = PBXGroup;
-			children = (
-				418E4A901CA1EF5100EDD908 /* StateOpen.swift */,
-				418E4A921CA1F2EB00EDD908 /* StateClosed.swift */,
-			);
-			name = StatesExample1;
-			sourceTree = "<group>";
-		};
-		413A0B811CB6E4A000A84FDE /* StatesExample2 */ = {
-			isa = PBXGroup;
-			children = (
-				4194F91A1CADBC76009F9983 /* StateNew.swift */,
-				4194F91C1CADBCE0009F9983 /* StateOld.swift */,
-				4194F91E1CADBD19009F9983 /* StateAncestral.swift */,
-			);
-			name = StatesExample2;
-			sourceTree = "<group>";
-		};
 		414447461CA0A305008563EF /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				412FDEDA1CC972D9000B90A6 /* BGSampleState.swift */,
 				414447421CA0A1CC008563EF /* BGMockStatePickerDatasource.swift */,
-				414447441CA0A22C008563EF /* BGMockStatePickerStateable.swift */,
 			);
 			name = Mock;
 			sourceTree = "<group>";
@@ -174,8 +145,6 @@
 				418E4A871CA1ED5300EDD908 /* Assets.xcassets */,
 				418E4A891CA1ED5300EDD908 /* LaunchScreen.storyboard */,
 				418E4A8C1CA1ED5300EDD908 /* Info.plist */,
-				413A0B801CB6E48D00A84FDE /* StatesExample1 */,
-				413A0B811CB6E4A000A84FDE /* StatesExample2 */,
 			);
 			path = BGStatePickerExample;
 			sourceTree = "<group>";
@@ -349,9 +318,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				414447451CA0A22C008563EF /* BGMockStatePickerStateable.swift in Sources */,
 				4102A8BE1CA0662D00CA5F07 /* BGStatePickerTests.swift in Sources */,
 				414447431CA0A1CC008563EF /* BGMockStatePickerDatasource.swift in Sources */,
+				412FDEDB1CC972D9000B90A6 /* BGSampleState.swift in Sources */,
 				414447481CA0A6F6008563EF /* BGStatePickerStateableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,12 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				418E4A831CA1ED5300EDD908 /* ViewController.swift in Sources */,
-				418E4A911CA1EF5100EDD908 /* StateOpen.swift in Sources */,
-				4194F91F1CADBD19009F9983 /* StateAncestral.swift in Sources */,
 				418E4A811CA1ED5300EDD908 /* AppDelegate.swift in Sources */,
-				4194F91B1CADBC76009F9983 /* StateNew.swift in Sources */,
-				418E4A931CA1F2EB00EDD908 /* StateClosed.swift in Sources */,
-				4194F91D1CADBCE0009F9983 /* StateOld.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,7 @@ class BGStatePickerTests: XCTestCase {
 	func testPickerViewDataSourceWithOneState() {
 		XCTAssertEqual(view.subviews.count, 0)
 		view.datasource = datasource
-		datasource.states = [BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state()]
 		XCTAssertEqual(view.subviews.count, 0)
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 1)
@@ -47,11 +47,11 @@ class BGStatePickerTests: XCTestCase {
 
 	func testPickerViewDataSourceWithOneStateAndChangeTheStatesAfterInit() {
 		view.datasource = datasource
-		datasource.states = [BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state()]
 		XCTAssertEqual(view.subviews.count, 0)
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 1)
-		datasource.states = [BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state()]
 		XCTAssertEqual(view.subviews.count, 1)
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 1)
@@ -59,27 +59,27 @@ class BGStatePickerTests: XCTestCase {
 
 	func testPickerViewDataSourceWithOneStateAndAddAStateAfterReload() {
 		view.datasource = datasource
-		datasource.states = [BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state()]
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 1)
-		datasource.states = [BGMockStatePickerStateable(), BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state(), BGSampleState.state()]
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 2)
 	}
 
 	func testPickerViewDataSourceWithTwoStatesAndChangeTheStatesAfterInit() {
 		view.datasource = datasource
-		datasource.states = [BGMockStatePickerStateable(), BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state(), BGSampleState.state()]
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 2)
-		datasource.states = [BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state()]
 		view.reloadData()
 		XCTAssertEqual(view.subviews.count, 1)
 	}
 
 	func testPickerStatePicker() {
 		view.datasource = datasource
-		datasource.states = [BGMockStatePickerStateable(), BGMockStatePickerStateable()]
+		datasource.states = [BGSampleState.state(), BGSampleState.state()]
 		view.reloadData()
 		if let sub = view.subviews.first! as? BGStateView {
 			view.didTapOnState(sub)

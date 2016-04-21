@@ -8,42 +8,18 @@
 
 import Foundation
 
-public protocol BGStateable {
-	var stateText: String { get }
-	var stateTextColor: UIColor { get }
-	var stateTextFont: UIFont { get }
-	var stateBackgroundColor: UIColor { get }
-	var stateSize: CGSize { get }
-}
+public class BGStateable {
 
-public extension BGStateable {
-	var stateText: String {
-		get {
-			return "Text"
-		}
-	}
-	var stateSize: CGSize {
-		get {
-			return CGSize(width: 40, height: 40)
-		}
-	}
-	var stateTextFont: UIFont {
-		get {
-			return .systemFontOfSize(14)
-		}
-	}
-	var stateTextColor: UIColor {
-		get {
-			return .whiteColor()
-		}
-	}
-	var stateBackgroundColor: UIColor {
-		get {
-			return .greenColor()
-		}
+	public var stateText: String = "Text"
+	public var stateSize: CGSize = CGSize(width: 40, height: 40)
+	public var stateTextFont: UIFont = .systemFontOfSize(14)
+	public var stateTextColor: UIColor = .whiteColor()
+	public var stateBackgroundColor: UIColor = .greenColor()
+
+	public init() {
 	}
 }
 
 func == (lhs: BGStateable, rhs: BGStateable) -> Bool {
-	return lhs.stateText == rhs.stateText
+	return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }
