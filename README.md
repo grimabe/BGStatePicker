@@ -6,7 +6,7 @@
 
 BGStatePicker is a component that allows showing different states and selecting one.
 
-<img src="resources/BGStatePicker.gif" alt="BGStatePicker demo" title="BGStatePicker demo" width="250px" />
+<img src="Resources/BGStatePicker.gif" alt="BGStatePicker demo" title="BGStatePicker demo" width="250px" />
 
 ## Usage
 
