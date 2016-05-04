@@ -80,6 +80,8 @@ github "grimabe/BGStatePicker" ~> 0.2.0
 ```ruby
 pod "BGStatePicker", "~> 0.2.0"
 ```
+## Requirements
+BGStatePicker requires **iOS 8** or later.
 
 ## Author
 Benjamin Grima  
