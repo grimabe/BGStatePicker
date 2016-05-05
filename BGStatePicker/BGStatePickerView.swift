@@ -22,8 +22,8 @@ public class BGStatePickerView: UIControl {
 	var reloading = false
 	var initiated = false
 
-	@IBInspectable var foldLeft: Bool = true
-	@IBInspectable var keepOrder: Bool = true
+	@IBInspectable public var foldLeft: Bool = true
+	@IBInspectable public var keepOrder: Bool = true
 
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
