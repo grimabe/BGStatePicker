@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class BGStateable {
+open class BGStateable {
 
-	public var stateText: String = "Text"
-	public var stateSize: CGSize = CGSize(width: 40, height: 40)
-	public var stateTextFont: UIFont = .systemFontOfSize(14)
-	public var stateTextColor: UIColor = .whiteColor()
-	public var stateBackgroundColor: UIColor = .greenColor()
+	open var stateText: String = "Text"
+	open var stateSize: CGSize = CGSize(width: 40, height: 40)
+	open var stateTextFont: UIFont = .systemFont(ofSize: 14)
+	open var stateTextColor: UIColor = .white
+	open var stateBackgroundColor: UIColor = .green
 
 	public init() {
 	}

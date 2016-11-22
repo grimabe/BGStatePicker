@@ -27,21 +27,21 @@ class ViewController: UIViewController {
 
 		let closedState = BGStateable()
 		closedState.stateText = "Close"
-		closedState.stateBackgroundColor = .redColor()
+		closedState.stateBackgroundColor = .red
 
 		let newState = BGStateable()
 		newState.stateText = "New"
-		newState.stateBackgroundColor = .greenColor()
+		newState.stateBackgroundColor = .green
 		newState.stateSize = CGSize(width: 80, height: 80)
 
 		let oldState = BGStateable()
 		oldState.stateText = "Old"
-		oldState.stateBackgroundColor = .orangeColor()
+		oldState.stateBackgroundColor = .orange
 		oldState.stateSize = CGSize(width: 80, height: 80)
 
 		let ancestralState = BGStateable()
 		ancestralState.stateText = "Ancestral"
-		ancestralState.stateBackgroundColor = .brownColor()
+		ancestralState.stateBackgroundColor = .brown
 		ancestralState.stateSize = CGSize(width: 80, height: 80)
 
 		statusStates = [openState, closedState]
@@ -54,19 +54,20 @@ class ViewController: UIViewController {
 		let sel = #selector(pickState(_:))
 
 		statePickerView.datasource = self
-		statePickerView.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		statePickerView.addTarget(self, action: sel, for: [.valueChanged])
 		statePickerView.reloadData()
 
 		statePickerView2.datasource = self
-		statePickerView2.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		statePickerView2.addTarget(self, action: sel, for: [.valueChanged])
 		statePickerView2.reloadData()
 
 		agePickerStateView.datasource = self
-		agePickerStateView.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		agePickerStateView.addTarget(self, action: sel, for: [.valueChanged])
 		agePickerStateView.reloadData()
 
 		ageStatePickerView2.datasource = self
-		ageStatePickerView2.addTarget(self, action: sel, forControlEvents: [.ValueChanged])
+		ageStatePickerView2.keepOrder = false
+		ageStatePickerView2.addTarget(self, action: sel, for: [.valueChanged])
 		ageStatePickerView2.reloadData()
 	}
 
@@ -74,13 +75,13 @@ class ViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 	}
 
-	func pickState(sender: BGStatePickerView) {
+	func pickState(_ sender: BGStatePickerView) {
 		if let state = sender.selectedValue { // BGStateable
 			print("You pick state \(state.stateText)")
 		}
 	}
 
-	func foldPickers(sender: UIView) {
+	func foldPickers(_ sender: UIView) {
 		statePickerView.close(true)
 		statePickerView2.close(true)
 		agePickerStateView.close(true)
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
 
 extension ViewController: BGStatePickerDatasource {
 
-	func numberOfState(statePickerView: BGStatePickerView) -> Int {
+	func numberOfState(_ statePickerView: BGStatePickerView) -> Int {
 		switch statePickerView {
 		case self.statePickerView, statePickerView2:
 			return statusStates.count
@@ -100,7 +101,7 @@ extension ViewController: BGStatePickerDatasource {
 			return 0
 		}
 	}
-	func stateForIndex(statePickerView: BGStatePickerView, index: Int) -> BGStateable {
+	func stateForIndex(_ statePickerView: BGStatePickerView, index: Int) -> BGStateable {
 		switch statePickerView {
 		case self.statePickerView, statePickerView2:
 			return statusStates[index]

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "BGStatePicker"
-  spec.version = "0.2.0"
+  spec.version = "0.3.0"
   spec.summary = "iOS Framework for picking states"
   spec.homepage = "https://github.com/grimabe/BGStatePicker"
   spec.license = { type: 'MIT', file: 'LICENSE' }

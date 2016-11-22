@@ -13,10 +13,10 @@ class BGMockStatePickerDatasource: BGStatePickerDatasource {
 
 	var states = [BGStateable]()
 
-	func numberOfState(statePickerView: BGStatePickerView) -> Int {
+	func numberOfState(_ statePickerView: BGStatePickerView) -> Int {
 		return states.count
 	}
-	func stateForIndex(statePickerView: BGStatePickerView, index: Int) -> BGStateable {
+	func stateForIndex(_ statePickerView: BGStatePickerView, index: Int) -> BGStateable {
 		return states[index]
 	}
 }

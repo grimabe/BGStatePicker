@@ -15,9 +15,9 @@ class BGStateView: UIButton {
 		self.pickerState = state
 		super.init(frame: CGRect.zero)
 		backgroundColor = state.stateBackgroundColor
-		setTitle(state.stateText, forState: .Normal)
+		setTitle(state.stateText, for: UIControlState())
 		titleLabel?.font = state.stateTextFont
-		setTitleColor(state.stateTextColor, forState: .Normal)
+		setTitleColor(state.stateTextColor, for: UIControlState())
 	}
 
 	required init?(coder aDecoder: NSCoder) {

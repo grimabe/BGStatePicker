@@ -15,9 +15,9 @@ class BGSampleState: UITableViewCell {
 		let sampleState = BGStateable()
 		sampleState.stateText = "Blue"
 		sampleState.stateSize = CGSize(width: 33, height: 33)
-		sampleState.stateBackgroundColor = .blueColor()
-		sampleState.stateTextFont = .systemFontOfSize(10)
-		sampleState.stateTextColor = .redColor()
+		sampleState.stateBackgroundColor = .blue
+		sampleState.stateTextFont = .systemFont(ofSize: 10)
+		sampleState.stateTextColor = .red
 		return sampleState
 	}
 }
